@@ -1,0 +1,37 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class numbergame{
+    public static void main(String[] args){
+        Scanner scanner=new Scanner(System.in);
+        int score=0;
+        int attempts=5;
+        Random random=new Random();
+        int randomnum=random.nextInt(100) +1;
+        int total=100;
+        System.out.println("WELCOME TO THE GAME :)");
+        System.out.println("A RANDOM NUMBER BETWEEN 1 TO 100 HAS BEEN GENERATED ");
+        System.out.println("");
+        System.out.println("YOU ONLY HAVE 5 ATTEMPTS");
+        for(int i=5;i>=1;i--){
+            System.out.println("you have "+ i +" attempts left.please enter your guess");
+            int guess=scanner.nextInt();
+            if(guess==randomnum){
+                score=(i+1)*20;
+                System.out.println("Congratulation you guessed the correct number.your score is:"+score);
+                break;
+            }else if(guess>randomnum){
+                System.out.println("guess is too high please try again");
+            }else if(guess<randomnum){
+                System.out.println("oops guess is too low please try again");
+                attempts=attempts-1;
+            }
+                
+            
+        }System.out.println("");
+        System.out.println("Sorry Out Of Attempts.The Correct Number Was "+randomnum+" Your Final Score is " + score+" / "+total);
+        scanner.close();
+        
+        
+    }
+};
