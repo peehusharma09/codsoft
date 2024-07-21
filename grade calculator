@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+    public static void main(String[] args){
+        Scanner scanner =new Scanner(System.in);
+        System.out.print("ENTER THE NUMBER OF SUBJECTS=");
+        int numofsub=scanner.nextInt();
+        int marks[]=new int[numofsub];
+        for(int i=0;i<numofsub;i++){
+            System.out.print("ENTER THE MARKS OF SUBJECT " + (i+1)+"->");
+            marks[i]=scanner.nextInt();
+            
+        }
+        int TotalMarks=calculatetotalmarksobtain(marks,numofsub);
+        double AveragePercentage=calculateaveragepercentage(TotalMarks,numofsub);
+        char grade=calculategradeobtain(AveragePercentage);
+        System.out.println("TOTAL MARKS OBTAINED:-"+TotalMarks);
+        System.out.println("AVERAGE PERCENTAGE:-"+AveragePercentage);
+        System.out.println("GRADE:-"+grade);
+        scanner.close();
+    }
+    
+    public static int calculatetotalmarksobtain(int[]marks,int numofsub){
+        int total=0;
+            for (int mark : marks) {
+            total += mark;
+            }return total;
+        }
+        
+    public static double calculateaveragepercentage(int TotalMarks,int numofsub){
+        int average=TotalMarks/numofsub;
+        return average;
+        
+    }
+    public static char calculategradeobtain(double AveragePercentage){
+        if(AveragePercentage>=90){
+            return 'A';
+        }else if(AveragePercentage>=80){
+            return'B';
+        }else if(AveragePercentage>=70){
+            return 'C';
+        }else if(AveragePercentage>=60){
+            return'D';
+        }else {
+            return 'F';
+        }
+    }
+    
+}
